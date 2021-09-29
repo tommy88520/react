@@ -1,42 +1,29 @@
-import { useState } from 'react'
-import MyButton from './components/MyButton'
-import './App.css'
+import CounterFC from './components/CounterFC'
+import CounterCC from './components/CounterCC'
+import FormFC from './components/FormFC'
+import FormCC from './components/FormCC'
+// import Parent from './components/Parent'
+import Counter from './components/Counter'
+import Parent from './components/Third_child/Parent'
+
 function App() {
-  //[得到狀態,設定狀態] = useState(初始值)
-  const test = Math.floor(Math.random() * 1000)
-  const [total, setTotal] = useState(test)
   return (
     <>
-      <h1>{total}</h1>
-      <button
-        onClick={() => {
-          setTotal(total + 1)
-        }}
-      >
-        +
-      </button>
-
-      <button
-        onClick={() => {
-          setTotal(total - 1)
-        }}
-      >
-        -
-      </button>
-      <input type="text" placeholder="heheehehehehheh" />
-      <div className="card card-width">
-        <img src="..." className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#/" className="btn btn-primary">
-            Go somewhere
-          </a>
-        </div>
-      </div>
+      <h2>函式型元件</h2>
+      <CounterFC />
+      <hr />
+      <h2>類別型元件</h2>
+      <CounterCC />
+      <hr />
+      <FormFC />
+      <hr />
+      <FormCC />
+      <hr />
+      {/* <Parent /> */}
+      <hr />
+      <h2>購物車加減</h2>
+      <Counter />
+      <Parent />
     </>
   )
 }

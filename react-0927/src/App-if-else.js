@@ -1,7 +1,7 @@
 import React from 'react'
 
 function App() {
-  const count = 0
+  const count = 1
   const foo = true
 
   return (
@@ -18,4 +18,4 @@ function App() {
   )
 }
 
-export default App
+// export default App

@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       {/* 放在public資料夾，要用http://XXXX/ */}
-      <img src={`${imgUrl}/images/IMG_0001.jpg`} alt="" />
+      <img src={`${imgUrl}/images/IMG_0001.jpeg`} alt="" />
       {/* --------------------- */}
       {/* 放在src資料夾，要用import(第2行) */}
       <img src={Logo} alt="" />
@@ -14,4 +14,4 @@ function App() {
   )
 }
 
-export default App
+// export default App

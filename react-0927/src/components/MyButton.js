@@ -1,9 +1,17 @@
 import React from 'react'
 
-function MyButton() {
+function MyButton(props) {
+  const { value, text, changeTotal } = props
   return (
     <>
-      <button>+1</button>
+      <button
+        className="btn btn-secondary"
+        onClick={() => {
+          changeTotal(value)
+        }}
+      >
+        {text}
+      </button>
     </>
   )
 }
