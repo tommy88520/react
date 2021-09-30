@@ -1,30 +1,52 @@
-import CounterFC from './components/CounterFC'
-import CounterCC from './components/CounterCC'
-import FormFC from './components/FormFC'
-import FormCC from './components/FormCC'
-// import Parent from './components/Parent'
-import Counter from './components/Counter'
-import Parent from './components/Third_child/Parent'
+import React, { useState } from 'react'
+import './App.css'
+import OrderList from './components/ShoppingChart/OrderList'
+import Summary from './components/ShoppingChart/Summary'
+
+// 產品訂購的項目
+const products = [
+  {
+    id: 1,
+    name: '咖啡色 T-shirt',
+    category: 'Shirt',
+    image: 'https://i.imgur.com/1GrakTl.jpg',
+    price: 300,
+  },
+  // {
+  //   id: 2,
+  //   name: '白色 T-shirt',
+  //   category: 'Shirt',
+  //   image: 'https://i.imgur.com/ba3tvGm.jpg',
+  //   price: 200,
+  // },
+  // {
+  //   id: 3,
+  //   name: '黑色 T-shirt',
+  //   category: 'Shirt',
+  //   image: 'https://i.imgur.com/pHQ3xT3.jpg',
+  //   price: 450,
+  // },
+]
+
+const initState = (products) => {
+  const init = []
+  for (let i; i < products.length; i++) {
+    init.push(1)
+  }
+  return []
+}
 
 function App() {
+  // 多樣產品是陣列
+  const [Counts, setCounts] = useState(initState(products))
+
   return (
-    <>
-      <h2>函式型元件</h2>
-      <CounterFC />
-      <hr />
-      <h2>類別型元件</h2>
-      <CounterCC />
-      <hr />
-      <FormFC />
-      <hr />
-      <FormCC />
-      <hr />
-      {/* <Parent /> */}
-      <hr />
-      <h2>購物車加減</h2>
-      <Counter />
-      <Parent />
-    </>
+    <div className="card">
+      <div className="row">
+        <OrderList products={products} setCounts={setCounts} Counts={Counts} />
+        <Summary productCount={Counts} total={Counts * products[0].price} />
+      </div>
+    </div>
   )
 }
 

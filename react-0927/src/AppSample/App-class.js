@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import MyButton from './components/MyButton'
+import MyButton from '../components/MyButton'
 import './App.css'
 function App() {
   //[得到狀態,設定狀態] = useState(初始值)
