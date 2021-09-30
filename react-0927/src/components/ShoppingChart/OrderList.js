@@ -2,7 +2,8 @@ import React from 'react'
 import ProductItem from './ProductItem'
 
 function OrderList(props) {
-  const { products, countOne, setCountOne } = props
+  // counts -> 陣列
+  const { productCount, productsInOrder, setProductsInOrder } = props
 
   return (
     <>
@@ -14,12 +15,12 @@ function OrderList(props) {
                 <b>訂購單</b>
               </h4>
             </div>
-            <div className="col align-self-center text-right text-muted">
-              {countOne}種產品項目
+            <div className="col align-self-center text-end text-muted">
+              {productCount} 項商品
             </div>
           </div>
         </div>
-        {products.map((v, i) => {
+        {productsInOrder.map((v, i) => {
           return (
             <ProductItem
               key={v.id}
@@ -27,8 +28,18 @@ function OrderList(props) {
               category={v.category}
               image={v.image}
               price={v.price}
-              countOne={countOne}
-              setCountOne={setCountOne}
+              count={v.count}
+              setCount={(newCount) => {
+                //1. 先從原本的陣列拷貝出一個新陣列(在這上面處理)
+                const newProductsInOrder = [...productsInOrder]
+
+                //2. 運算處理：更新陣列中對應商品數量
+                // 更新陣列中本商品索引值，如果小於1以1來更新
+                newProductsInOrder[i].count = newCount < 1 ? 1 : newCount
+
+                //3. 設定回原本的狀態
+                setProductsInOrder(newProductsInOrder)
+              }}
             />
           )
         })}

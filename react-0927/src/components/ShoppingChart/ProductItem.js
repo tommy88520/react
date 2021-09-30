@@ -10,7 +10,7 @@ import React from 'react'
 //  }
 
 function ProductItem(props) {
-  const { name, category, image, price, countOne, setCountOne } = props
+  const { name, category, image, price, count, setCount } = props
 
   return (
     <>
@@ -27,28 +27,24 @@ function ProductItem(props) {
             <a
               href="#/"
               onClick={() => {
-                //產品最少數量為1
-                const newCount = countOne - 1 < 1 ? 1 : countOne - 1
-                setCountOne(newCount)
+                setCount(count - 1)
               }}
             >
               -
             </a>
             <a href="#/" className="border">
-              {countOne}
+              {count}
             </a>
             <a
               href="#/"
               onClick={() => {
-                setCountOne(countOne + 1)
+                setCount(count + 1)
               }}
             >
               +
             </a>
           </div>
-          <div className="col">
-            ${countOne * price} <span className="close">&#10005;</span>
-          </div>
+          <div className="col text-end">$ {price * count} 元</div>
         </div>
       </div>
     </>
