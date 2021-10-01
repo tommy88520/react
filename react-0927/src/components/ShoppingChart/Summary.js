@@ -7,7 +7,7 @@ function Summary(props) {
     <>
       <div className="col-md-4 summary">
         <div>
-          <h5>
+          <h5 className="text-end">
             <b>付款摘要</b>
           </h5>
         </div>
@@ -17,7 +17,7 @@ function Summary(props) {
         </div>
         <div className="row row-style">
           <div className="col">總價</div>
-          <div className="col text-right">${total}</div>
+          <div className="col text-end">${total}</div>
         </div>
         <button className="btn">前往付款</button>
       </div>
