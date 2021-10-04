@@ -18,6 +18,7 @@ function App(props) {
   // checkbox - group - 專用元件
   const [likeList2, setLikeList2] = useState([])
   const fruitOptions = ['芒果', '西瓜', '芭樂']
+  const [birth , setBirth] = useState('')
 
   return (
     <>
@@ -189,6 +190,16 @@ function App(props) {
             />
           )
         })}
+      </section>
+      <section id="birth">
+      <h2>日期輸入框</h2>
+        <input
+          type="date"
+          value={birth}
+          onChange={(e) => {
+            setBirth(e.target.value)
+          }}
+        />
       </section>
     </>
   )

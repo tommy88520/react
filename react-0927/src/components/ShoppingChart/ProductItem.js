@@ -10,7 +10,8 @@ import React from 'react'
 //  }
 
 function ProductItem(props) {
-  const { name, category, image, price, count, setCount } = props
+  const { id, name, category, image, price, count, handleDelete, setCount } =
+    props
 
   return (
     <>
@@ -45,6 +46,17 @@ function ProductItem(props) {
             </a>
           </div>
           <div className="col text-end">$ {price * count} 元</div>
+
+          <div className="col text-end d-flex justify-content-end">
+            <div
+              className="cancel px-1"
+              onClick={() => {
+                handleDelete(id)
+              }}
+            >
+              &#10005;
+            </div>
+          </div>
         </div>
       </div>
     </>

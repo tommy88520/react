@@ -5,6 +5,14 @@ function OrderList(props) {
   // counts -> 陣列
   const { productCount, productsInOrder, setProductsInOrder } = props
 
+  const handleDelete = (id) => {
+    const newproductsInOrder = productsInOrder.filter((v, i) => {
+      return v.id !== id
+    })
+    setProductsInOrder(newproductsInOrder)
+    console.log(newproductsInOrder)
+  }
+
   return (
     <>
       <div className="col-md-8 cart">
@@ -24,11 +32,13 @@ function OrderList(props) {
           return (
             <ProductItem
               key={v.id}
+              id={v.id}
               name={v.name}
               category={v.category}
               image={v.image}
               price={v.price}
               count={v.count}
+              handleDelete={handleDelete}
               setCount={(newCount) => {
                 //1. 先從原本的陣列拷貝出一個新陣列(在這上面處理)
                 const newProductsInOrder = [...productsInOrder]
