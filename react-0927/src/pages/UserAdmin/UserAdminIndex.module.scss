@@ -1,0 +1,23 @@
+.slide_bar {
+  width: 175px;
+//   height: 500px;
+  border: 1px solid red;
+  & .avatar {
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+}
+
+.slide_bar_ul {
+  padding: 0;
+  list-style: none;
+  height: 300px;
+  & .slide_bar_li {
+    font-size: 18px;
+  }
+  & .slide_bar_color{
+      color: black;
+  }
+}
